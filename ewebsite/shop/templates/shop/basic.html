@@ -75,35 +75,6 @@
     {%block body%}{% endblock %}
     {% block js %}
 <script>
-  if (localStorage.getItem('cart') == null) {
-    var cart = {};
-  }
-  else {
-    cart = JSON.parse(localStorage.getItem('cart'));
-    document.getElementById("cart").innerHTML = Object.keys(cart).length;
-  }
-  $('.cart').click(function () {
-    var idstr = this.id.toString();
-    console.log(idstr)
-    if (cart[idstr] != undefined) {
-      cart[idstr] = cart[idstr] + 1;
-    }
-    else {
-      cart[idstr] = 1;
-    }
-    localStorage.setItem('cart', JSON.stringify(cart))
-    document.getElementById("cart").innerHTML = Object.keys(cart).length;
-
-  });
-  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-    return new bootstrap.Popover(popoverTriggerEl)
-  })
-  
-    localStorage.setItem('cart', JSON.stringify(cart));
-    document.getElementById('cart').innerHTML = Object.keys(cart).length;
-    console.log(cart);
-  }
 </script>
 {% endblock %}
    
