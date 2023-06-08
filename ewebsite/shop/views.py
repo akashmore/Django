@@ -30,10 +30,9 @@ def tracker(request):
         orderId = request.POST.get('orderId', '')
         email = request.POST.get('email', '')
         try:
-            order = Orders.objects.filter(order_id=orderId, email=email)
+            order = Order.objects.filter(order_id=orderId, email=email)
             if len(order)>0:
                 update = OrderUpdate.objects.filter(order_id=orderId)
-                print("update",update)
                 updates = []
                 for item in update:
                     updates.append({'text': item.update_desc, 'time': item.timestamp})

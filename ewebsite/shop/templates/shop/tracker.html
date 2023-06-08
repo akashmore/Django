@@ -45,16 +45,15 @@
             encode: true
         })
             .done(function (data) {
-                console.log(data)
+                console.log("data",data)
                 updates = JSON.parse(data);
-                console.log("updates", updates)
                 if (updates.length > 0 & updates != {}) {
                     for (i = 0; i < updates.length; i++) {
                         let text = updates[i]['text'];
                         let time = updates[i]['time'];
                         mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
                     ${text}
-                    <span class="badge badge-primary badge-pill">${time}</span>
+                    <span class="badge rounded-pill bg-primary"">${time}</span>
                 </li>`
                         $('#items').append(mystr);
                     }
