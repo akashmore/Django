@@ -103,14 +103,11 @@ background-image:null;
 
 
   function updateCart(cart) {
-    console.log("cart",cart)
     for (var cnt in cart){
-      console.log("cnt",cnt)
       if (cart[cnt][0] == 0){
         delete cart[cnt]
       }
     }
-    console.log("updated cart",cart)
     var sum = 0;
     for (var item in cart) {
       sum = sum + cart[item][0];
