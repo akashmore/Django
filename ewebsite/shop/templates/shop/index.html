@@ -103,11 +103,6 @@ background-image:null;
 
 
   function updateCart(cart) {
-    for (var cnt in cart){
-      if (cart[cnt][0] == 0){
-        delete cart[cnt]
-      }
-    }
     var sum = 0;
     for (var item in cart) {
       sum = sum + cart[item][0];
@@ -122,7 +117,14 @@ background-image:null;
     a = this.id.slice(7,);
     cart['pr' + a][0] = cart['pr' + a][0] - 1;
     cart['pr' + a][0] = Math.max(0, cart['pr' + a][0]);
-    document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+    if (cart['pr' + a][0]==0)
+    {
+      document.getElementById('divpr' + a).innerHTML = `<button id="pr`+a+`" class="btn btn-primary cart">Add to Cart</button>`
+      delete cart['pr'+a]
+    }
+    else{
+      document.getElementById('valpr'+a).innerHTML = cart['pr' + a][0];
+    }
     updateCart(cart);
   });
   $('.divpr').on("click", "button.plus", function () {
