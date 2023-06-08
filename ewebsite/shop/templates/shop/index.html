@@ -63,7 +63,8 @@ background-image:null;
     } else {
       qty = 1;
       name = document.getElementById('name' + idstr).innerHTML
-      cart[idstr] = [qty, name];
+      price = document.getElementById('price' + idstr).innerHTML
+      cart[idstr] = [qty, name, parseInt(price)];
     }
     updateCart(cart);
   });
@@ -152,6 +153,7 @@ background-image:null;
             <img src="/media/{{product.0.image}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title" id="namepr{{product.0.id}}">{{product.0.product_name}}</h5>
+              <h6 class="card-title" >Price : <span id="pricepr{{product.0.id}}">{{product.0.price}}</span></h6>
               <p class="card-text">{{product.0.desc}}</p>
               <span id="divpr{{product.0.id}}" class="divpr">
                 <a class="btn btn-primary cart" id="pr{{product.0.id}}">Add to cart</a>
@@ -164,6 +166,7 @@ background-image:null;
             <img src="/media/{{product.1.image}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title" id="namepr{{product.1.id}}">{{product.1.product_name}}</h5>
+              <h6 class="card-title" >Price : <span id="pricepr{{product.1.id}}">{{product.1.price}}</span></h6>
               <p class="card-text">{{product.1.desc}}</p>
               <span id="divpr{{product.1.id}}" class="divpr">
                 <a class="btn btn-primary cart" id="pr{{product.1.id}}">Add to cart</a>
@@ -176,6 +179,7 @@ background-image:null;
             <img src="/media/{{product.2.image}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title" id="namepr{{product.2.id}}">{{product.2.product_name}}</h5>
+              <h6 class="card-title" >Price : <span id="pricepr{{product.2.id}}">{{product.2.price}}</span></h6>
               <p class="card-text">{{product.2.desc}}</p>
               <span id="divpr{{product.2.id}}" class="divpr">
                 <a class="btn btn-primary cart" id="pr{{product.2.id}}">Add to cart</a>
@@ -194,6 +198,7 @@ background-image:null;
             <img src="/media/{{product.3.image}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title" id="namepr{{product.3.id}}">{{product.3.product_name}}</h5>
+              <h6 class="card-title" >Price : <span id="pricepr{{product.3.id}}">{{product.3.price}}</span></h6>
               <p class="card-text">{{product.3.desc}}</p>
               <span id="divpr{{product.3.id}}" class="divpr">
                 <a class="btn btn-primary cart" id="pr{{product.3.id}}">Add to cart</a>
@@ -206,6 +211,7 @@ background-image:null;
             <img src="/media/{{product.4.image}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title" id="namepr{{product.4.id}}">{{product.4.product_name}}</h5>
+              <h6 class="card-title" >Price : <span id="pricepr{{product.4.id}}">{{product.4.price}}</span></h6>
               <p class="card-text">{{product.4.desc}}</p>
               <span id="divpr{{product.4.id}}" class="divpr">
                 <a class="btn btn-primary cart" id="pr{{product.4.id}}">Add to cart</a>
@@ -218,6 +224,7 @@ background-image:null;
             <img src="/media/{{product.5.image}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title" id="namepr{{product.5.id}}">{{product.5.product_name}}</h5>
+              <h6 class="card-title" >Price : <span id="pricepr{{product.5.id}}">{{product.5.price}}</span></h6>
               <p class="card-text">{{product.5.desc}}</p>
               <span id="divpr{{product.5.id}}" class="divpr">
                 <a class="btn btn-primary cart" id="pr{{product.5.id}}">Add to cart</a>
