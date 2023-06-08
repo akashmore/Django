@@ -57,7 +57,7 @@ ROOT_URLCONF = "ewebsite.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ["ewebsite/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
