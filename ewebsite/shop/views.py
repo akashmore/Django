@@ -15,6 +15,15 @@ def index(request):
     params = {'no_of_slides':nslides,'range':range(1,nslides),'product':products}
     return render(request,'shop/index.html',params)
 
+
+def search(request):
+    products = Product.objects.all()
+    n = len(products)
+    nslides = n//3 + ceil((n/3)-(n//3))
+    print(nslides)
+    params = {'no_of_slides':nslides,'range':range(1,nslides),'product':products}
+    return render(request,'shop/index.html',params)
+
 def about(request):
     return render(request,'shop/about.html')
 
@@ -41,12 +50,12 @@ def tracker(request):
                 updates = []
                 for item in update:
                     updates.append({'text': item.update_desc, 'time': item.timestamp})
-                    response = json.dumps([updates, order[0].items_json], default=str)
+                    response = json.dumps({"status":"success", "updates": updates, "itemsJson": order[0].items_json}, default=str)
                 return HttpResponse(response)
             else:
-                return HttpResponse('{}')
+                return HttpResponse('{"status":"noitem"}')
         except Exception as e:
-            return HttpResponse('{}')
+            return HttpResponse('{"status":"error"}')
 
     return render(request, 'shop/tracker.html')
 
@@ -76,14 +85,10 @@ def checkout(request):
         #paytm transfer request
         client = razorpay.Client(auth=("rzp_test_Rqo0bpQBzRSZzM", "bDghqI0n9toULtbq2IiDlfxS"))
         data = { "amount": int(amount)*100, "currency": "INR", "receipt": "order_rcptid_11" }
-        print("data",data)
         payment = client.order.create(data=data)
-        print("payemnt",payment)
         return render(request, 'shop/checkout.html', {'thank':thank, 'id':id, 'payment':payment})
     return render(request, 'shop/checkout.html')
 
-def search(request):
-    return render(request,'shop/search.html')
 
 
 
