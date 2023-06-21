@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+{% block title %}Contact{% endblock title %}
+{% block contactactive %}active{% endblock contactactive %}
+{% block body %}
+{% for message in messages %}
+
+  <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert" >
+    {% comment %} <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="True">&times;</span>
+    </button> {% endcomment %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    {{ message }}
+  </div>
+
+{% endfor %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <h1 class="mb-3">Contact Us</h1>
+        <form action="/contact/" method="post"> {% csrf_token %}
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="your-name" class="form-label">Your Name</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="col-md-6">
+              <label for="your-surname" class="form-label">Your Phone</label>
+              <input type="phone" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="col-md-6">
+              <label for="your-email" class="form-label">Your Email</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="col-md-6">
+              <label for="your-subject" class="form-label">Your Subject</label>
+              <input type="text" class="form-control" id="subject" name="subject">
+            </div>
+            <div class="col-12">
+              <label for="your-message" class="form-label">Your Message</label>
+              <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="col-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <button data-res="<?php echo $sum; ?>" type="submit" class="btn btn-dark w-100 fw-bold">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endblock body %}
